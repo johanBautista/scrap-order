@@ -8,29 +8,30 @@ import reactRecommended from "eslint-plugin-react/configs/recommended.js";
 import reactNative from "eslint-plugin-react-native";
 
 export default [
-  js.configs.recommended, // Configuración base de ESLint
-  reactRecommended, // Configuración recomendada para React
+  js.configs.recommended,
+  reactRecommended,
   {
-    files: ["**/*.{js,jsx,ts,tsx}"], // Aplica estas reglas a archivos JS/TS
+    files: ["**/*.{js,jsx,ts,tsx}"],
     languageOptions: {
-      parser: tsParser, // Usa el parser de TypeScript
-      ecmaVersion: "latest", // Usa la última versión de ECMAScript
-      sourceType: "module", // Usa módulos ES
+      parser: tsParser,
+      ecmaVersion: "latest",
+      sourceType: "module",
     },
     plugins: {
-      "react-native": reactNative, // Plugin de React Native
-      "@typescript-eslint": tsPlugin, // Plugin de TypeScript
-      import: importPlugin, // Plugin de importaciones
-      prettier: prettierPlugin, // Plugin de Prettier
+      "react-native": reactNative,
+      "@typescript-eslint": tsPlugin,
+      import: importPlugin,
+      prettier: prettierPlugin,
     },
     rules: {
-      "prettier/prettier": "error", // Asegura que Prettier marque errores
-      "react/react-in-jsx-scope": "off", // Desactiva la regla que requiere importar React
-      "react-native/no-unused-styles": "error", // Detecta estilos no usados
-      "react-native/split-platform-components": "error", // Separa componentes por plataforma
-      "react-native/no-inline-styles": "warn", // Evita estilos en línea
-      "react-native/no-color-literals": "warn", // Evita literales de color en línea
-      "react-native/no-raw-text": "warn", // Evita texto crudo en componentes
+      "prettier/prettier": "error",
+      semi: "off",
+      "react/react-in-jsx-scope": "off",
+      "react-native/no-unused-styles": "error",
+      "react-native/split-platform-components": "error",
+      "react-native/no-inline-styles": "warn",
+      "react-native/no-color-literals": "warn",
+      "react-native/no-raw-text": "warn",
       "import/order": [
         "error",
         {
@@ -45,19 +46,19 @@ export default [
           "newlines-between": "always",
           alphabetize: { order: "asc", caseInsensitive: true },
         },
-      ], // Ordena las importaciones
-      "react/prop-types": "off", // Desactiva la validación de PropTypes (si usas TypeScript)
-      "@typescript-eslint/explicit-module-boundary-types": "off", // No requiere tipos explícitos en funciones
-      "@typescript-eslint/no-unused-vars": "warn", // Detecta variables no usadas
+      ],
+      "react/prop-types": "off",
+      "@typescript-eslint/explicit-module-boundary-types": "off",
+      "@typescript-eslint/no-unused-vars": "warn",
     },
     settings: {
       react: {
-        version: "detect", // Detecta automáticamente la versión de React
+        version: "detect",
       },
     },
   },
-  prettierConfig, // Aplica la configuración de Prettier
+  prettierConfig,
   {
-    ignores: ["node_modules/", ".expo/", "dist/", "build/"], // Ignora estas carpetas
+    ignores: ["node_modules/", ".expo/", "dist/", "build/"],
   },
 ];
